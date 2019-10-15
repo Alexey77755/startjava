@@ -1,4 +1,4 @@
-public class MyFirstApp {
+public class ConditionalStatement {
     public static void main(String[] args) {
         int age = 0;
         boolean maleGender = true;
