@@ -1,23 +1,22 @@
-public class MyFirstApp {
+public class Cycle {
     public static void main(String[] args) {
         for (int i = 0; i<=20;i++) {
             System.out.println("Hello, world");
         }
-        int j = 6;
-        while (j>=-6) {
-            System.out.println(j);
-            j-=2;
-        }
-        int f = 11;
-        do {
-            int k = 0;
-            while(f < 20) {
-                k += f;
-                f += 2;
-            }
 
-            System.out.println(k);
+        int counter = 6;
+        while (counter>=-6) {
+            System.out.println(counter);
+            counter-=2;
+        }
+
+       counter = 11;
+       int sum = 0;
+        do  {
+            sum += counter;
+            counter += 2;
             }
-        while (f<=20);
+        while (counter<=20);
+        System.out.println(sum);
     }
 }
