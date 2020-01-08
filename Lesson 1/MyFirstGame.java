@@ -3,20 +3,19 @@ import java.lang.Math;
 
 public class MyFirstGame {
     public static void main(String[] args) {
-    int numb = 0;
-    Scanner sc = new Scanner(System.in);
-    int random_number = (int) (Math.random() * 101);
-    do {
-        System.out.print("Введите ваше число: ");
-        numb = sc.nextInt();
-        if (numb > random_number) {
-            System.out.print("Ваше число больше\n");
-        } else if (numb < random_number) {
-            System.out.print("Ваше число меньше\n");
-        } else {
-            System.out.print("Верное число))");
+        int numberUser = 0;
+        Scanner sc = new Scanner(System.in);
+        int randomNumber = (int) (Math.random() * 101);
+        do {
+            System.out.print("Введите ваше число: ");
+            numberUser = sc.nextInt();
+            if (numberUser > randomNumber) {
+                System.out.print("Ваше число больше\n");
+            } else if (numberUser < randomNumber) {
+                System.out.print("Ваше число меньше\n");
+            }
         }
-        }
-    while (random_number != numb);
+        while (randomNumber != numberUser);
+        System.out.print("Верное число))");
    }
 }

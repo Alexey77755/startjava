@@ -16,6 +16,6 @@ class Variable {
         System.out.println("busSpeed " + busSpeed);
         System.out.println("multiplier " + multiplier);
         System.out.println("model " + model);
-        System.out.println("intel " + intel);
+        System.out.println("intel " + isIntel);
     }
 }

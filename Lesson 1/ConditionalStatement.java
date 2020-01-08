@@ -20,8 +20,7 @@ public class ConditionalStatement {
             System.out.println("giant");
         }
 
-        String name = "Alexey";
-        char firstLetterName = name.charAt(0);
+        char firstLetterName = "Alexey".charAt(0);
         if (firstLetterName == 'M') {
             System.out.println("MMM");
         } else if (firstLetterName == 'I') {
