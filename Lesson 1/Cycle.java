@@ -14,10 +14,10 @@ public class Cycle {
        int sum = 0;
        do {
             if(counter % 2) {
-            sum += counter;
+                sum += counter;
             }
-        counter++;
-        } while (counter <= 20);
-        System.out.println(sum);
+            counter++;
+       } while (counter <= 20);
+       System.out.println(sum);
     }
 }
