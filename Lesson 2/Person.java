@@ -1,30 +1,29 @@
 
 public class Person {
 
-	boolean isSex = 0;
+    boolean isSex = 0;
     String name = "Alex";
     float height = 1.75;
     float weight = 70.6;
     int age = 30;
 
-    void go(){
+    void go() {
 
     }
 
-    void sit(){
+    void sit() {
 
     }
 
-    void toRun(){
+    void run() {
 
     }
 
-    void speak(){
+    void speak() {
 
     }
 
-    void learnJava(){
+    void learnJava() {
 
     }
-
 }
