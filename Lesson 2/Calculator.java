@@ -6,27 +6,57 @@ public class Calculator {
     private int num2 = 0;
     private char sign = ' ';
 
-    public int getnum1() {
+    public int getNum1() {
         return num1;
     }
 
-    public void setnum1(int num) {
-        num1=num;
+    public void setNum1(int num1) {
+        this.num1=num1;
     }
 
-        public int getnum2() {
+        public int getNum2() {
         return num2;
     }
 
-    public void setnum2(int num) {
-        num2=num;
+    public void setNum2(int num2) {
+        this.num2=num2;
     }
 
-            public char getsign() {
+    public char getSign() {
         return sign;
     }
 
-    public void setsign(char sign1) {
-        sign=sign1;
+    public void setSign(char sign) {
+        this.sign=sign;
+    }
+
+    public void mathOperation() {
+        switch (sign) {
+
+            case '+': System.out.println(num1 + num2);
+                break;
+
+            case '-': System.out.println(num1 - num2);
+                break;
+
+            case '*': System.out.println(num1 * num2);
+                break;
+
+            case '/': System.out.println(num1 / num2);
+                break;
+
+            case '^': int result = 1;
+                for (int i = 1; i <= num2; i++) {
+                    result *= num1;
+                }
+                System.out.println(result);
+                break;
+
+            case '%': System.out.println(num1 % num2);
+                break;
+
+            default: System.out.println("Введеный знак не соответстует знаку математической операции. ");
+                break;
+        }
     }
 }

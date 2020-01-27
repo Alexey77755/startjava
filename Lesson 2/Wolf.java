@@ -1,47 +1,45 @@
 
 public class Wolf {
 
-    private boolean isSex = true;
+    private String sex = "men";
     private String nickname = "Bob";
     private float weight = 70.6f;
     private int age = 5;
     private String color = "black";
 
-    public boolean getSex() {
-        return isSex;
+    public String getSex() {
+        return sex;
     }
 
-    public void setSex(boolean sex) {
-        isSex=sex;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public String getNickname() {
         return nickname;
     }
 
-        public void setNickname(String nname) {
-        nickname=nname;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public float getWeight() {
         return weight;
     }
 
-        public void setWeight(float w) {
-        weight=w;
+    public void setWeight(float weight) {
+        this.weight = weight;
     }
-
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int a) {
+    public void setAge(int age) {
         if(a>8) {
             System.out.println("Некорректный возраст");
-        }
-        else {
-            age=a;
+        } else {
+            this.age = age;
         }
     }
 
@@ -49,8 +47,8 @@ public class Wolf {
         return color;
     }
 
-    public void setColor(String color1) {
-       color=color1;
+    public void setColor(String color) {
+       this.color = color;
     }
 
     public void go() {
