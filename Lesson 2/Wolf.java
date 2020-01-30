@@ -1,7 +1,7 @@
 
 public class Wolf {
 
-    private String sex = "men";
+    private String sex = "male";
     private String nickname = "Bob";
     private float weight = 70.6f;
     private int age = 5;
@@ -36,7 +36,7 @@ public class Wolf {
     }
 
     public void setAge(int age) {
-        if(a>8) {
+        if(a > 8) {
             System.out.println("Некорректный возраст");
         } else {
             this.age = age;

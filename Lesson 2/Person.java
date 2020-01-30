@@ -1,7 +1,7 @@
 
 public class Person {
 
-    boolean isSex = 0;
+    boolean isSex = false;
     String name = "Alex";
     float height = 1.75;
     float weight = 70.6;
