@@ -30,7 +30,7 @@ public class Calculator {
         this.sign = sign;
     }
 
-    public void definesSign() {
+    public void calculate() {
         switch (sign) {
             case '+':
                 System.out.println(num1 + num2);

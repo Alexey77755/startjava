@@ -1,19 +1,29 @@
+import java.util.Scanner;
+
 public class CalculatorTest {
     public static void main(String[] args) {
         Calculator calc = new Calculator();
-        boolean isProgramWork = true;
-        boolean isNumber1 = true;
-        String buffer;
+        String userResponse = "да";
         Scanner sc = new Scanner (System.in);
 
-        while(isProgramWork) {
-            System.out.print ("Введите первое число ");
+        do {
+            if(userResponse.equals("да") ) {
+
+            } else if(userResponse.equals("нет")) {
+                break;
+            } else {
+            System.out.println("Похоже, вы ввели не верное значение.");
+            userResponse = sc.next();
+            continue;
+            }
+
+            System.out.print("Введите первое число ");
             if (sc.hasNextInt()) {
                 calc.setNum1(sc.nextInt());
-                isNumber1 = false;
             } else {
                     System.out.println("Похоже, вы ввели не целое число. Введите снова.");
             }
+
             System.out.print ("Введите знак математической операции ");
             calc.setSign(sc.next().charAt(0));
 
@@ -23,18 +33,10 @@ public class CalculatorTest {
             } else {
             System.out.println("Похоже, вы ввели не целое число. Введите снова.");
             }
-            calc.definesSign();
-            do {
-                System.out.println("Хотите продолжить? [да/нет]: ");
-                buffer = sc.next();
-                if(buffer.equals("да") ) {
-                    isProgramWork = true;
-                } else if(buffer.equals("нет")) {
-                    isProgramWork = false;
-                } else {
-                System.out.println("Похоже, вы ввели не верное значение.");
-                }
-            } while(!buffer.equals("да") & !buffer.equals("нет"));
-        }
+            calc.calculate();
+
+            System.out.println("Хотите продолжить? [да/нет]: ");
+            userResponse = sc.next();
+        } while(true);
     }
 }
