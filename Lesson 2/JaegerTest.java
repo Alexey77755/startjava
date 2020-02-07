@@ -1,7 +1,7 @@
 public class JaegerTest {
 
     public static void main(String[] args) {
-        Jaeger strikerEureka = new Jaeger("A-50","Mark-1","Australia","TY/Escape Hatch","Arbiter Tac-Conn","XIG Supercell Chamber","Herc Hansen, Chuck Hansen",70.5f,3.2f,51,21,33);
+        Jaeger strikerEureka = new Jaeger("A-50");
 
         strikerEureka.attackKaiju();
         strikerEureka.move();
