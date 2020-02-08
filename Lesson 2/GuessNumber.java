@@ -3,10 +3,16 @@ import java.util.Scanner;
 public class GuessNumber {
     private int randomNumber = (int) (Math.random() * 101);
     Scanner scan = new Scanner(System.in);
-    Player mark = new Player();
-    Player ivan = new Player();
+    private Player mark;
+    private Player ivan;
 
-    public boolean comparesNumber(int userNumber) {
+
+    public GuessNumber(Player mark, Player ivan) {
+        this.mark = mark;
+        this.ivan = ivan;
+    }
+
+    private boolean comparesNumber(int userNumber) {
         if (userNumber > randomNumber) {
             System.out.print("Ваше число больше\n");
             return false;
@@ -17,7 +23,7 @@ public class GuessNumber {
             return true;
         }
     }
-    public void enterValues() {
+    public void start() {
         while(true) {
             System.out.println("Первый игрок введите число ");
             mark.setNumber(scan.nextInt());
