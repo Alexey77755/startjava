@@ -6,14 +6,13 @@ public class GuessNumberTest {
         String player2Choice;
         Scanner sc = new Scanner(System.in);
 
-
         System.out.println("Введите имя первого игрока ");
-        Player mark = new Player(sc.next());
+        Player player1 = new Player(sc.next());
 
         System.out.println("Введите имя второго игрока ");
-        Player ivan = new Player(sc.next());
+        Player player2 = new Player(sc.next());
 
-        GuessNumber game = new GuessNumber(mark,ivan);
+        GuessNumber game = new GuessNumber(player1,player2);
 
         do {
             game.start();
@@ -27,17 +26,17 @@ public class GuessNumberTest {
                 if(player1Choice.equals("да") && player2Choice.equals("да")) {
                     System.out.println("Оба игрока хотят продолжать. ");
                     break;
-                } else if(player1Choice.equals("нет")&& player2Choice.equals("нет")) {
+                } else if(player1Choice.equals("нет") && player2Choice.equals("нет")) {
                     System.out.println("Оба игрока не хотят продолжать. Игра завершается.");
                     break;
                 } else if(player1Choice.equals("нет") && player2Choice.equals("да")) {
                     System.out.println("Первый игрок не хочет продолжать. Введите имя игрока желающего его заменить.");
-                    mark.setName(sc.next());
+                    player1.setName(sc.next());
                     player1Choice = "да";
                     break;
                 } else if(player1Choice.equals("да") && player2Choice.equals("нет")) {
                     System.out.println("Второй игрок не хочет продолжать. Введите имя игрока желающего его заменить.");
-                    ivan.setName(sc.next());
+                    player2.setName(sc.next());
                     player2Choice = "да";
                     break;
                 } else {
@@ -47,4 +46,3 @@ public class GuessNumberTest {
         } while(player1Choice.equals("да") && player2Choice.equals("да"));
     }
 }
-
