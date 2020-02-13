@@ -1,19 +1,7 @@
-import java.util.Scanner;
-import java.lang.Math;
+package com.startjava.lesson_1.game;
 
-public class GuessNumber {
-    private int randomNumber = (int) (Math.random() * 101);
-    Scanner sc = new Scanner(System.in);
-
-    public boolean comparesNumber(int userNumber) {
-        if (userNumber > randomNumber) {
-            System.out.print("Ваше число больше\n");
-            return false;
-        } else if (userNumber < randomNumber) {
-            System.out.print("Ваше число меньше\n");
-            return false;
-        } else {
-            return true;
-        }
+public class MyFirstApp {
+    public static void main(String[] args) {
+        System.out.println("Hello, world");
     }
 }
