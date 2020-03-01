@@ -1,6 +1,5 @@
 package com.startjava.lesson_2_3.calculator;
-
-import java.util.Scanner;
+import java.lang.Math;
 
 public class Calculator {
 
@@ -35,23 +34,19 @@ public class Calculator {
     public void calculate() {
         switch (sign) {
             case '+':
-                System.out.println(num1 + num2);
+                System.out.println(Math.addExact(num1, num2));
                 break;
             case '-':
-                System.out.println(num1 - num2);
+                System.out.println(Math.subtractExact(num1,num2));
                 break;
             case '*':
-                System.out.println(num1 * num2);
+                System.out.println(Math.multiplyExact(num1, num2));
                 break;
             case '/':
                 System.out.println(num1 / num2);
                 break;
             case '^':
-                int result = 1;
-                for (int i = 1; i <= num2; i++) {
-                    result *= num1;
-                }
-                System.out.println(result);
+                System.out.println(Math.pow(num1,num2));
                 break;
             case '%':
                 System.out.println(num1 % num2);

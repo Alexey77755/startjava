@@ -28,7 +28,7 @@ public class GuessNumberTest {
                     System.out.println("Оба игрока хотят продолжать. ");
                     break;
                 } else if(player1Choice.equals("нет") && player2Choice.equals("нет")) {
-                    System.out.println("Оба игрока не хотят продолжать. Игра завершается.");
+                    System.out.println("Оба игрока не хотят продолжать.Игра завершается.");
                     break;
                 } else if(player1Choice.equals("нет") && player2Choice.equals("да")) {
                     System.out.println("Первый игрок не хочет продолжать. Введите имя игрока желающего его заменить.");

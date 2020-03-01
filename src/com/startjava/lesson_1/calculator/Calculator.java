@@ -5,6 +5,7 @@ public class Calculator {
     public static void main(String[] args) {
         int num1 = 0;
         int num2 = 0;
+        char sign = ' ';
         System.out.print ("Введите первое число арифметического выражения ");
         Scanner sc = new Scanner (System.in);
 
@@ -22,7 +23,7 @@ public class Calculator {
         }
 
         System.out.print ("Введите знак математической операции ");
-        char sign;
+
         if (sc.hasNextLine()) {
             sign = sc.next().charAt(0);
         } else {
