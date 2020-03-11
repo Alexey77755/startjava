@@ -18,18 +18,18 @@ public class GuessNumber {
         for(int i = 0; i < 10; i++) {
             System.out.println("Первый игрок введите число ");
             player1.setNumber(scan.nextInt());
-            player1.setUsNumber(i);
+            player1.setEnteredNumbers(i);
             if(comparesNumber(player1.getNumber())) {
-                System.out.println("Игрок " + player1.getName() + " угадал число " + player1.getUsNumber()[i] +" с " + (i+1) + " попытки");
+                System.out.println("Игрок " + player1.getName() + " угадал число " + player1.getEnteredNumbers()[i] +" с " + (i+1) + " попытки");
                 System.out.println(player1.arrayToString(i));
                 System.out.println(player2.arrayToString(i-1));
                 break;
             }
             System.out.println("Второй игрок введите число ");
             player2.setNumber(scan.nextInt());
-            player2.setUsNumber(i);
+            player2.setEnteredNumbers(i);
             if(comparesNumber(player2.getNumber())) {
-                System.out.println("Игрок " + player2.getName() + " угадал число " + player2.getUsNumber()[i] +" с " + (i+1) + " попытки");
+                System.out.println("Игрок " + player2.getName() + " угадал число " + player2.getEnteredNumbers()[i] +" с " + (i+1) + " попытки");
                 System.out.println(player1.arrayToString(i));
                 System.out.println(player2.arrayToString(i));
                 break;

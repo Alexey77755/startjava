@@ -1,4 +1,5 @@
 package com.startjava.lesson_2_3_4.calculator;
+
 import java.lang.Math;
 
 public class Calculator {
@@ -31,6 +32,27 @@ public class Calculator {
         this.sign = sign;
     }
 
+
+    public boolean assignVariables(String[] massiv) {
+        for(int i = 0; i < massiv.length; i++) {
+            if (i != 1){
+                try {
+                    if(i < 1) {
+                        num1 = Integer.parseInt(massiv[i]);
+                    } else {
+                        num2 = Integer.parseInt(massiv[i]);
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Похоже, вы ввели не целое число.");
+                    return false;
+                }
+            } else {
+                sign = massiv[i].charAt(0);
+                continue;
+            }
+        }
+        return true;
+    }
     public void calculate() {
         switch (sign) {
             case '+':
