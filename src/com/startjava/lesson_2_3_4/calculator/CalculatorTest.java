@@ -7,19 +7,19 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         String userResponse;
         String[] mathExpression;
-        Scanner sc = new Scanner (System.in);
+        Scanner sc = new Scanner(System.in);
+
         do {
-            userResponse = " ";
             System.out.print("Введите математическое выражение: ");
             mathExpression = sc.nextLine().split(" ");
 
-            if(calc.assignVariables(mathExpression)) {
+            if(calc.gettingValues(mathExpression)) {
                 calc.calculate();
             }
-            while(!userResponse.equals("да") && !userResponse.equals("нет")) {
+            do {
                 System.out.println("Хотите продолжить? [да/нет]: ");
                 userResponse = sc.nextLine();
-            }
+            } while(!userResponse.equals("да") && !userResponse.equals("нет"));
         } while(userResponse.equals("да"));
     }
 }

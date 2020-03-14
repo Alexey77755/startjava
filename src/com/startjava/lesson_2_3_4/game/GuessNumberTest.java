@@ -3,8 +3,7 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
     public static void main(String[] args) {
-        String player1Choice;
-        String player2Choice;
+
         Scanner sc = new Scanner(System.in);
 
         System.out.println("У вас 10 попыток");
@@ -17,33 +16,8 @@ public class GuessNumberTest {
 
         do {
             game.start();
+            game.gameEnding();
 
-            do {
-                System.out.println("Хотите продолжить? [да/нет]: ");
-                System.out.println("Ответ первого игрока: ");
-                player1Choice = sc.next();
-                System.out.println("Ответ второго игрока: ");
-                player2Choice = sc.next();
-                if(player1Choice.equals("да") && player2Choice.equals("да")) {
-                    System.out.println("Оба игрока хотят продолжать. ");
-                    break;
-                } else if(player1Choice.equals("нет") && player2Choice.equals("нет")) {
-                    System.out.println("Оба игрока не хотят продолжать.Игра завершается.");
-                    break;
-                } else if(player1Choice.equals("нет") && player2Choice.equals("да")) {
-                    System.out.println("Первый игрок не хочет продолжать. Введите имя игрока желающего его заменить.");
-                    player1.setName(sc.next());
-                    player1Choice = "да";
-                    break;
-                } else if(player1Choice.equals("да") && player2Choice.equals("нет")) {
-                    System.out.println("Второй игрок не хочет продолжать. Введите имя игрока желающего его заменить.");
-                    player2.setName(sc.next());
-                    player2Choice = "да";
-                    break;
-                } else {
-                    continue;
-                }
-            } while(true);
-        } while(player1Choice.equals("да") && player2Choice.equals("да"));
+        } while(game.getPlayer1Choice().equals("да") && game.getPlayer2Choice().equals("да"));
     }
 }

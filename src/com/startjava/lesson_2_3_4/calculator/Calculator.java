@@ -9,50 +9,57 @@ public class Calculator {
     private char sign;
 
     public int getNum1() {
+
         return num1;
     }
 
     public void setNum1(int num1) {
+
         this.num1 = num1;
     }
 
     public int getNum2() {
+
         return num2;
     }
 
     public void setNum2(int num2) {
+
         this.num2 = num2;
     }
 
     public char getSign() {
+
         return sign;
     }
 
     public void setSign(char sign) {
+
         this.sign = sign;
     }
 
 
-    public boolean assignVariables(String[] massiv) {
-        for(int i = 0; i < massiv.length; i++) {
-            if (i != 1){
+    public boolean gettingValues(String[] arrayValues) {
+        for(int i = 0; i < arrayValues.length; i++) {
+            if (i != 1) {
                 try {
                     if(i < 1) {
-                        num1 = Integer.parseInt(massiv[i]);
+                        num1 = Integer.parseInt(arrayValues[i]);
                     } else {
-                        num2 = Integer.parseInt(massiv[i]);
+                        num2 = Integer.parseInt(arrayValues[i]);
                     }
                 } catch (NumberFormatException e) {
                     System.out.println("Похоже, вы ввели не целое число.");
                     return false;
                 }
             } else {
-                sign = massiv[i].charAt(0);
+                sign = arrayValues[i].charAt(0);
                 continue;
             }
         }
         return true;
     }
+
     public void calculate() {
         switch (sign) {
             case '+':
