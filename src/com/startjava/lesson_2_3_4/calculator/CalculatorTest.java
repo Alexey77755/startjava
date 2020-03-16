@@ -12,10 +12,7 @@ public class CalculatorTest {
         do {
             System.out.print("Введите математическое выражение: ");
             mathExpression = sc.nextLine().split(" ");
-
-            if(calc.gettingValues(mathExpression)) {
-                calc.calculate();
-            }
+            calc.calculate(mathExpression);
             do {
                 System.out.println("Хотите продолжить? [да/нет]: ");
                 userResponse = sc.nextLine();
