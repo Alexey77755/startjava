@@ -32,29 +32,20 @@ public class Calculator {
     }
 
 
-    public boolean assignsValues(String[] mathExpression) {
-        for(int i = 0; i < mathExpression.length; i++) {
-            if (i != 1) {
-                try {
-                    if(i < 1) {
-                        num1 = Integer.parseInt(mathExpression[i]);
-                    } else {
-                        num2 = Integer.parseInt(mathExpression[i]);
-                    }
-                } catch (NumberFormatException e) {
-                    System.out.println("Похоже, вы ввели не целое число.");
+    public boolean checkExpression(String[] mathExpression) {
+        try {
+            num1 = Integer.parseInt(mathExpression[0]);
+            sign = mathExpression[1].charAt(0);
+            num2 = Integer.parseInt(mathExpression[2]);
+            } catch (NumberFormatException e) {
+                    System.out.println("Похоже, выражение введено не верно.");
                     return false;
                 }
-            } else {
-                sign = mathExpression[i].charAt(0);
-                continue;
-            }
-        }
         return true;
     }
 
     public void calculate(String[] mathExpression) {
-        if(assignsValues(mathExpression)) {
+        if(checkExpression(mathExpression)) {
             switch (sign) {
                 case '+':
                     System.out.println(Math.addExact(num1, num2));

@@ -17,15 +17,14 @@ public class GuessNumber {
 
     public void start() {
         for (int i = 0; i < 10; i++) {
-            System.out.println("Первый игрок введите число ");
-            player1.setEnteredNumber(scan.nextInt(),i);
-            if(guessed(player1, i)) {
+            if(enterNumber(player1, i)) {
+                System.out.println(Arrays.toString(player2.getEnteredNumbers(i - 1)));
+                Arrays.fill(player2.getEnteredNumbers(),0,i,0);
                 break;
             }
-
-            System.out.println("Второй игрок введите число ");
-            player2.setEnteredNumber(scan.nextInt(),i);
-            if(guessed(player2, i)) {
+            if(enterNumber(player2, i)) {
+                System.out.println(Arrays.toString(player1.getEnteredNumbers(i)));
+                Arrays.fill(player1.getEnteredNumbers(),0,i,0);
                 break;
             }
 
@@ -34,22 +33,29 @@ public class GuessNumber {
                 System.out.println("У " + player2.getName() + " закончились попытки");
             }
         }
+
+    }
+
+    private boolean enterNumber(Player player, int index) {
+        if (player.equals(player1)) {
+            System.out.println("Первый игрок введите число ");
+        } else {
+            System.out.println("Второй игрок введите число ");
+        }
+        player.setEnteredNumbers(scan.nextInt(),index);
+        if(guessed(player, index)) {
+            System.out.println(Arrays.toString(player.getEnteredNumbers(index)));
+            Arrays.fill(player.getEnteredNumbers(),0,index+1,0);
+            return true;
+        }
+        return false;
     }
 
 
     private boolean guessed(Player gamer, int index) {
-        if (compareNumbers(gamer.getEnteredNumber(index)[index])) {
-            if (gamer.equals(player1)) {
-                System.out.println("Игрок " + player1.getName() + " угадал число " + player1.getEnteredNumber(index)[index] + " с " + (index + 1) + " попытки");
-                System.out.println(Arrays.toString(player1.getEnteredNumber(index)));
-                System.out.println(Arrays.toString(player2.getEnteredNumber(index - 1)));
-                return true;
-            } else {
-                System.out.println("Игрок " + player2.getName() + " угадал число " + player2.getEnteredNumber(index)[index] + " с " + (index + 1) + " попытки");
-                System.out.println(Arrays.toString(player1.getEnteredNumber(index)));
-                System.out.println(Arrays.toString(player2.getEnteredNumber(index)));
-                return true;
-            }
+        if (compareNumbers(gamer.getEnteredNumbers(index)[index])) {
+            System.out.println("Игрок " + gamer.getName() + " угадал число " + gamer.getEnteredNumbers(index)[index] + " с " + (index + 1) + " попытки");
+            return true;
         }
         return false;
     }
