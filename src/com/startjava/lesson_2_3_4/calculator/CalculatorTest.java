@@ -11,8 +11,7 @@ public class CalculatorTest {
 
         do {
             System.out.print("Введите математическое выражение: ");
-            mathExpression = sc.nextLine().split(" ");
-            calc.calculate(mathExpression);
+            calc.calculate(sc.nextLine().split(" "));
             do {
                 System.out.println("Хотите продолжить? [да/нет]: ");
                 userResponse = sc.nextLine();

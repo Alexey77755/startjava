@@ -18,15 +18,15 @@ public class Player {
         return name;
     }
 
-    public void setEnteredNumbers(int number, int index) {
+    public void setEnteredNumber(int number, int index) {
         this.enteredNumbers[index] = number;
     }
 
     public int[] getEnteredNumbers(int index) {
-        return Arrays.copyOf(enteredNumbers, index + 1);
-    }
-    public int[] getEnteredNumbers() {
-        return enteredNumbers;
+        return  Arrays.copyOf(enteredNumbers, index + 1);
     }
 
+    public void resettingArray(int index) {
+        Arrays.fill(enteredNumbers,0,index+1,0);
+    }
 }

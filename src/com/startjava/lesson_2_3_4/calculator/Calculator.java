@@ -31,19 +31,6 @@ public class Calculator {
         this.sign = sign;
     }
 
-
-    public boolean checkExpression(String[] mathExpression) {
-        try {
-            num1 = Integer.parseInt(mathExpression[0]);
-            sign = mathExpression[1].charAt(0);
-            num2 = Integer.parseInt(mathExpression[2]);
-            } catch (NumberFormatException e) {
-                    System.out.println("Похоже, выражение введено не верно.");
-                    return false;
-                }
-        return true;
-    }
-
     public void calculate(String[] mathExpression) {
         if(checkExpression(mathExpression)) {
             switch (sign) {
@@ -65,10 +52,19 @@ public class Calculator {
                 case '%':
                     System.out.println(num1 % num2);
                     break;
-                default:
-                    System.out.println("Введеный знак не соответстует знаку математической операции. ");
-                    break;
             }
         }
+    }
+
+    private boolean checkExpression(String[] mathExpression) {
+        try {
+            num1 = Integer.parseInt(mathExpression[0]);
+            sign = mathExpression[1].charAt(0);
+            num2 = Integer.parseInt(mathExpression[2]);
+        } catch(NumberFormatException e) {
+            System.out.println("Похоже, выражение введено не верно.");
+            return false;
+        }
+        return true;
     }
 }

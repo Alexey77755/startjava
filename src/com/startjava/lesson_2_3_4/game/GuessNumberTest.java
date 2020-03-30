@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String player1Choice;
-        String player2Choice;
 
         System.out.println("У вас 10 попыток");
         System.out.println("Введите имя первого игрока ");
@@ -16,6 +14,8 @@ public class GuessNumberTest {
         Player player2 = new Player(sc.next());
         GuessNumber game = new GuessNumber(player1, player2);
 
+        String player1Choice;
+        String player2Choice;
         do {
             game.start();
             do {
