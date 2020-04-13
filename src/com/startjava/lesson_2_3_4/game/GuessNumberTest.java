@@ -24,18 +24,18 @@ public class GuessNumberTest {
                 player1Choice = sc.next();
                 System.out.println("Ответ второго игрока: ");
                 player2Choice = sc.next();
-                if(player1Choice.equals("да") && player2Choice.equals("да")) {
+                if (player1Choice.equals("да") && player2Choice.equals("да")) {
                     System.out.println("Оба игрока хотят продолжать. ");
                     break;
-                } else if(player1Choice.equals("нет") && player2Choice.equals("нет")) {
+                } else if (player1Choice.equals("нет") && player2Choice.equals("нет")) {
                     System.out.println("Оба игрока не хотят продолжать.Игра завершается.");
                     break;
-                } else if(player1Choice.equals("нет") && player2Choice.equals("да")) {
+                } else if (player1Choice.equals("нет") && player2Choice.equals("да")) {
                     System.out.println("Первый игрок не хочет продолжать. Введите имя игрока желающего его заменить.");
                     player1.setName(sc.next());
                     player1Choice = "да";
                     break;
-                } else if(player1Choice.equals("да") && player2Choice.equals("нет")) {
+                } else if (player1Choice.equals("да") && player2Choice.equals("нет")) {
                     System.out.println("Второй игрок не хочет продолжать. Введите имя игрока желающего его заменить.");
                     player2.setName(sc.next());
                     player2Choice = "да";
@@ -43,7 +43,7 @@ public class GuessNumberTest {
                 } else {
                     continue;
                 }
-            } while(true);
-        } while(player1Choice.equals("да") && player2Choice.equals("да"));
+            } while (true);
+        } while (player1Choice.equals("да") && player2Choice.equals("да"));
     }
 }

@@ -17,53 +17,54 @@ public class GuessNumber {
 
     public void start() {
         for (int i = 0; i < 10; i++) {
-            System.out.println("Первый игрок введите число ");
-            enterNumber(player1,i);
-            if(guessed(player1, i)) {
-                System.out.println(Arrays.toString(player1.getEnteredNumbers(i)));
-                System.out.println(Arrays.toString(player2.getEnteredNumbers(i - 1)));
-                player1.resettingArray(i);
-                player2.resettingArray(i-1);
+            if (compareNumbers(player1, i)) {
+                printsAttemptsAndClearsArray(player1);
+                printsAttemptsAndClearsArray(player2);
                 break;
             }
-            System.out.println("Второй игрок введите число ");
-            enterNumber(player2,i);
-            if(guessed(player2, i)) {
-                System.out.println(Arrays.toString(player1.getEnteredNumbers(i)));
-                System.out.println(Arrays.toString(player2.getEnteredNumbers(i)));
-                player1.resettingArray(i);
-                player2.resettingArray(i);
+
+            if (compareNumbers(player2, i)) {
+                printsAttemptsAndClearsArray(player1);
+                printsAttemptsAndClearsArray(player2);
                 break;
             }
+
             if (i == 9) {
                 System.out.println("У " + player1.getName() + " закончились попытки");
                 System.out.println("У " + player2.getName() + " закончились попытки");
-                player1.resettingArray(i);
-                player2.resettingArray(i);
+                player1.resettingArray();
+                player2.resettingArray();
             }
         }
     }
 
     private void enterNumber(Player player, int index) {
-        player.setEnteredNumber(scan.nextInt(),index);
-    }
-
-    private boolean guessed(Player gamer, int index) {
-        if (compareNumbers(gamer.getEnteredNumbers(index)[index])) {
-            System.out.println("Игрок " + gamer.getName() + " угадал число " + gamer.getEnteredNumbers(index)[index] + " с " + (index + 1) + " попытки");
-            return true;
+        if (player.equals(player1)) {
+            System.out.println("Первый игрок введите число ");
+        } else {
+            System.out.println("Второй игрок введите число ");
         }
-        return false;
+        player.setEnteredNumber(scan.nextInt(), index);
     }
 
-    private boolean compareNumbers(int userNumber) {
-        if (userNumber > randomNumber) {
+
+    private boolean compareNumbers(Player player, int index) {
+        player.setAttempts(index);
+        enterNumber(player, index);
+        if (player.getEnteredNumbers()[index] > randomNumber) {
             System.out.print("Ваше число больше\n");
-        } else if (userNumber < randomNumber) {
+        } else if (player.getEnteredNumbers()[index] < randomNumber) {
             System.out.print("Ваше число меньше\n");
         } else {
+            System.out.println("Игрок " + player.getName() + " угадал число " + player.getEnteredNumbers()[index] + " с " + (index + 1) + " попытки");
             return true;
         }
         return false;
     }
+
+    private void printsAttemptsAndClearsArray(Player player) {
+        System.out.println(Arrays.toString(player.getEnteredNumbers()));
+        player.resettingArray();
+    }
+
 }
