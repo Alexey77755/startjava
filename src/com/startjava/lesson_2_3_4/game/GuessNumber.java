@@ -18,29 +18,23 @@ public class GuessNumber {
         for (int i = 0; i < 10; i++) {
             enterNumber(player1);
             if (compareNumbers(player1, i)) {
-                printsAttempts(player1);
-                printsAttempts(player2);
-                player1.resetEnteredNumbers();
-                player2.resetEnteredNumbers();
                 break;
             }
 
             enterNumber(player2);
             if (compareNumbers(player2, i)) {
-                printsAttempts(player1);
-                printsAttempts(player2);
-                player1.resetEnteredNumbers();
-                player2.resetEnteredNumbers();
                 break;
             }
 
             if (i == 9) {
                 System.out.println("У " + player1.getName() + " закончились попытки");
                 System.out.println("У " + player2.getName() + " закончились попытки");
-                player1.resetEnteredNumbers();
-                player2.resetEnteredNumbers();
             }
         }
+        printEnteredNumbers(player1);
+        printEnteredNumbers(player2);
+        player1.resetEnteredNumbers();
+        player2.resetEnteredNumbers();
     }
 
     private void enterNumber(Player player) {
@@ -60,7 +54,7 @@ public class GuessNumber {
         return false;
     }
 
-    private void printsAttempts(Player player) {
+    private void printEnteredNumbers(Player player) {
         System.out.println(Arrays.toString(player.getEnteredNumbers()));
     }
 }

@@ -20,7 +20,7 @@ public class Player {
     }
 
     public void setEnteredNumber(int number) {
-        this.enteredNumbers[attempts] = number;
+        enteredNumbers[attempts] = number;
         attempts++;
     }
 
