@@ -9,7 +9,6 @@ public class GuessNumber {
     private Player player1;
     private Player player2;
 
-
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
@@ -17,40 +16,39 @@ public class GuessNumber {
 
     public void start() {
         for (int i = 0; i < 10; i++) {
+            enterNumber(player1);
             if (compareNumbers(player1, i)) {
-                printsAttemptsAndClearsArray(player1);
-                printsAttemptsAndClearsArray(player2);
+                printsAttempts(player1);
+                printsAttempts(player2);
+                player1.resetEnteredNumbers();
+                player2.resetEnteredNumbers();
                 break;
             }
 
+            enterNumber(player2);
             if (compareNumbers(player2, i)) {
-                printsAttemptsAndClearsArray(player1);
-                printsAttemptsAndClearsArray(player2);
+                printsAttempts(player1);
+                printsAttempts(player2);
+                player1.resetEnteredNumbers();
+                player2.resetEnteredNumbers();
                 break;
             }
 
             if (i == 9) {
                 System.out.println("У " + player1.getName() + " закончились попытки");
                 System.out.println("У " + player2.getName() + " закончились попытки");
-                player1.resettingArray();
-                player2.resettingArray();
+                player1.resetEnteredNumbers();
+                player2.resetEnteredNumbers();
             }
         }
     }
 
-    private void enterNumber(Player player, int index) {
-        if (player.equals(player1)) {
-            System.out.println("Первый игрок введите число ");
-        } else {
-            System.out.println("Второй игрок введите число ");
-        }
-        player.setEnteredNumber(scan.nextInt(), index);
+    private void enterNumber(Player player) {
+        System.out.println(player.getName() + " введите число ");
+        player.setEnteredNumber(scan.nextInt());
     }
 
-
     private boolean compareNumbers(Player player, int index) {
-        player.setAttempts(index);
-        enterNumber(player, index);
         if (player.getEnteredNumbers()[index] > randomNumber) {
             System.out.print("Ваше число больше\n");
         } else if (player.getEnteredNumbers()[index] < randomNumber) {
@@ -62,9 +60,7 @@ public class GuessNumber {
         return false;
     }
 
-    private void printsAttemptsAndClearsArray(Player player) {
+    private void printsAttempts(Player player) {
         System.out.println(Arrays.toString(player.getEnteredNumbers()));
-        player.resettingArray();
     }
-
 }

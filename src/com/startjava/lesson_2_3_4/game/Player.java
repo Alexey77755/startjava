@@ -19,21 +19,17 @@ public class Player {
         return name;
     }
 
-    public void setAttempts(int attempts) {
-
-        this.attempts = attempts;
-    }
-
-
-    public void setEnteredNumber(int number, int index) {
-        this.enteredNumbers[index] = number;
+    public void setEnteredNumber(int number) {
+        this.enteredNumbers[attempts] = number;
+        attempts++;
     }
 
     public int[] getEnteredNumbers() {
-        return Arrays.copyOf(enteredNumbers, attempts + 1);
+        return Arrays.copyOf(enteredNumbers, attempts);
     }
 
-    public void resettingArray() {
-        Arrays.fill(enteredNumbers, 0, attempts + 1, 0);
+    public void resetEnteredNumbers() {
+        Arrays.fill(enteredNumbers, 0, attempts, 0);
+        attempts = 0;
     }
 }
